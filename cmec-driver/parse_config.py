@@ -66,8 +66,8 @@ if __name__ == '__main__':
 
     if custom_keys is not None:
         # load cmip config
-        with open(code_dir + "/cmip.json","r") as cf:
-            cmip = json.load(cf)["default_parameters"]["cfg"]
+        with open(config_dir + "/cmec.json","r") as cf:
+            cmip = json.load(cf)["ILAMB/CMIP"]["cfg"]
         # Might need to initialize config dictionary if using custom
         if "cfg" not in cfdict:
             cfdict["cfg"] = {}
@@ -102,6 +102,8 @@ if __name__ == '__main__':
             base_cmd.append("{0}".format(cfdict[cmd_var]))
 
     obs_dir_name = os.path.basename(obs_data)
+    print(obs_data)
+    print(obs_dir_name)
     # Check if obs dir is present in curent directory or if
     # it needs to get linked here for ILAMB
     create_link=False
